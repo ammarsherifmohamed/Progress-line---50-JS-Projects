@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root{
+    --line-border-filling : #3498db;
+    --line-border-empty : #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arimo", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.progress-container::before{
+    content: " ";
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 3px;
+    z-index: -1;
+}
+
+.progress{
+    background-color: var(--line-border-filling);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0%;
+    height: 3px;
+    z-index: -1;
+    transition: 0,4s ease-in-out;
+}
+
+.circle{
+    background-color: var(--line-border-empty);
+    border: 3px solid var(--line-border-empty);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+}
+
+.circle.active{
+    background-color: var(--line-border-filling);
+    border: 3px solid var(--line-border-filling);
+    color: white;
+}
+
+button{
+    background-color: var(--line-border-filling);
+    padding: 8px 30px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+}
+
+button:nth-of-type(2):active{
+    transform: scale(1.05);
+    transition: 0.2s ease ;
+}
+
+button:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
+
